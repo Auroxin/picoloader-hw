@@ -1,8 +1,12 @@
 # Normalise all text files to LF so KiCad projects stay byte-stable across platforms.
 * text=auto eol=lf
 
-# Binary-ish assets: never touch them
+# Cad / mesh exchange files and images: keep the authored bytes untouched
 *.png binary
 *.jpg binary
-*.zip binary
 *.pdf binary
+*.zip binary
+*.stl binary
+*.step binary
+*.stp binary
+*.wrl binary
