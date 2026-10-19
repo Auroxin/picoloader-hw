@@ -1,6 +1,6 @@
 # picoloader v1.2A — in production (16 MB)
 
-![PicoLoader v1.2A, top view](pcb-render-v1.2A-top.png)
+![PicoLoader v1.2A, top view](../../extras/pcb-render-v1.2A-top.png)
 
 The current production revision. It is an evolution of [v1.1A](../v1.1A) with a 16 MB SPI
 flash so that the PicoLoader firmware and the `swiss_r2092` boot payloads can be preloaded.

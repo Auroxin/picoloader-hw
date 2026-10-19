@@ -1,6 +1,6 @@
 # picoloader v1.1A — in production (2 MB)
 
-![PicoLoader v1.1A, top view](pcb-render-v1.1A-top.png)
+![PicoLoader v1.1A, top view](../../extras/pcb-render-v1.1A-top.png)
 
 The 2 MB revision, still sold alongside v1.2A.
 

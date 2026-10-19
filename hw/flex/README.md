@@ -1,6 +1,6 @@
 # picoloader solderless flex — in production
 
-![PicoLoader solderless flex, top view](Flex.png)
+![PicoLoader solderless flex, top view](../../extras/Flex.png)
 
 The 30-pin flex that connects the main board to the console. It taps the DVD-drive flex
 connector with `DVDCN_FLEX_PADS`, so the install needs no soldering.
@@ -12,7 +12,7 @@ connector with `DVDCN_FLEX_PADS`, so the install needs no soldering.
   schematic opens without missing-library warnings
 
 The flex is shared by every board revision; the silkscreen still reads `Rev1.1` because the
-outline has not changed since. See [`../3d-print/`](../3d-print) for the `Fold_KeyV1.2.stl`
-part that creases the cable at the right position.
+outline has not changed since. See [`../../3d-print/`](../../3d-print) for the
+`Fold_KeyV1.2.stl` part that creases the cable at the right position.
 
 Open `Flex.kicad_pro` with KiCad 10 or newer.

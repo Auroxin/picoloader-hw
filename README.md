@@ -45,9 +45,9 @@ so a 2 MB board can be swapped for a 16 MB one in an existing installation.
 ## Gallery
 
 <p align="center">
-  <img src="hw/v1.2A/pcb-render-v1.2A-top.png" alt="PicoLoader v1.2A, top view" width="32%">
-  <img src="hw/v1.1A/pcb-render-v1.1A-top.png" alt="PicoLoader v1.1A, top view" width="32%">
-  <img src="hw/flex/Flex.png" alt="PicoLoader solderless flex" width="32%">
+  <img src="extras/pcb-render-v1.2A-top.png" alt="PicoLoader v1.2A, top view" width="32%">
+  <img src="extras/pcb-render-v1.1A-top.png" alt="PicoLoader v1.1A, top view" width="32%">
+  <img src="extras/Flex.png" alt="PicoLoader solderless flex" width="32%">
 </p>
 
 <p align="center"><em>v1.2A (16 MB) · v1.1A (2 MB) · solderless flex</em></p>
@@ -100,7 +100,7 @@ for the same footprint, in case a larger flash is wanted.
 .
 ├── LICENSE                  GPL-2.0
 ├── NOTICE.md                upstream attribution and file-level provenance
-├── extras/                  product banner used in this README
+├── extras/                  PCB renders and product graphics
 ├── 3d-print/                STL / STEP parts for a solderless install
 └── hw/
     ├── v1.1/                discontinued — picoloader.kicad_{pro,sch,pcb}
@@ -108,8 +108,8 @@ for the same footprint, in case a larger flash is wanted.
     │   ├── sym-lib-table    project symbol table (${KIPRJMOD})
     │   ├── Library.pretty   project footprints
     │   └── packages3D/      3D models referenced by the PCB
-    ├── v1.1A/               same structure, plus pcb-render-v1.1A-top.png
-    ├── v1.2A/               same structure, plus pcb-render-v1.2A-top.png
+    ├── v1.1A/               same structure
+    ├── v1.2A/               same structure
     └── flex/                Flex.kicad_{pro,sch,pcb}
         ├── fp-lib-table
         ├── sym-lib-table
@@ -141,10 +141,23 @@ revision-specific details.
 
 ## Acknowledgements
 
-The PicoLoader concept, the solderless flex and the printed mounts come from the upstream
-open-source project by **makeo** — <https://github.com/makeo/PicoLoader> — with the flex PCBs
-and mounts originally made by **silversteel**. This repository carries the v1.1A / v1.2A board
-revisions and the parts needed to build them, and would not exist without that work.
+This project exists because of the **PicoLoader open-source community**. Thank you all.
+
+* **makeo** — for creating PicoLoader, for writing the installation documentation, and above
+  all for releasing the design under GPL-2.0 so that others can study it and build on it:
+  <https://github.com/makeo/PicoLoader>
+* **silversteel** — for the flex PCB and the printed mounts that make the solderless install
+  possible
+* **the PicoLoader community** — for the wiki and installation guides, the boot payload
+  converter, the support on Discord, and for testing every revision on real consoles
+* **emukidid, Extrems and the swiss-gc contributors** — for Swiss, the software these boards
+  boot
+* **TeamOffBroadway** — for the idea of intercepting the drive signals with a flex PCB
+* **novenary (9ary)** — for gekkoboot
+
+This repository only adds the v1.1A / v1.2A board revisions and the parts needed to build
+them; the concept, the flex and the mounts are the work of the people above. If you build one
+of these, consider contributing your findings back to the upstream project as well.
 
 ## Third-party assets
 

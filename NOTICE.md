@@ -28,7 +28,7 @@ Modified in October 2026 while preparing this repository:
 | `hw/flex/Flex.kicad_pro`, `Flex.kicad_sch`, `Flex.kicad_pcb` | `flex/InterposerFlex/Kicad/` | re-saved with KiCad 10, silkscreen and layout edits, footprint library flattened |
 | `hw/flex/Library.pretty/DVDCN_FLEX_PADS.kicad_mod` | `flex/InterposerFlex/Kicad/GamecubeConnectors.pretty/` | pad geometry edited |
 | `hw/v1.1/`, `hw/v1.1A/`, `hw/v1.2A/` | board revisions | published here, see each folder's `README.md` |
-| `hw/v1.1A/pcb-render-v1.1A-top.png`, `hw/v1.2A/pcb-render-v1.2A-top.png`, `hw/flex/Flex.png`, `extras/` | — | renders and product graphics made for this repository |
+| `extras/pcb-render-v1.1A-top.png`, `extras/pcb-render-v1.2A-top.png`, `extras/Flex.png`, `extras/picoloader-16mb-vs-2mb.png` | — | renders and product graphics made for this repository |
 
 ## Copyright
 
