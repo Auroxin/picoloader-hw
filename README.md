@@ -1,27 +1,63 @@
 # picoloader — hardware
 
-Open-hardware design files for **picoloader**, an RP2040 based board and its companion
-flex PCB. The main board carries a USB-C receptacle, a QSPI flash device and a 30-pin
-0.5 mm FFC connector; the flex plugs into that FFC and, on the other end, taps the game
-console's DVD-drive flex connector (footprint symbol `GamecubeConnectors:DVDFlexCN`).
+Open-hardware design files for **PicoLoader**, an RP2040-based add-on for the Nintendo
+GameCube. The main board carries the RP2040, the SPI flash and a USB-C port, and is wired to
+the console through a 30-pin **solderless flex** that taps the DVD-drive flex connector
+(footprint symbol `GamecubeConnectors:DVDFlexCN`). No soldering is required for installation.
+
+The **16 MB** version ships with the PicoLoader firmware and the `swiss_r2092` boot payloads
+preloaded, so no IPL file is needed on the SD card — copy your game files and play.
 
 All projects are **KiCad 10** (PCB format `20260206`, schematic format `20260306`).
 
-## Hardware revisions
+![PicoLoader 16 MB version compared with the 2 MB version](extras/picoloader-16mb-vs-2mb.png)
 
-| Folder | Revision | Board size | Footprints | QSPI flash | Notes |
+## Versions at a glance
+
+| Folder | Revision | Status | SPI flash | Board size | Footprints |
 | --- | --- | --- | --- | --- | --- |
-| [`hw/v1.1/`](hw/v1.1) | v1.1 | 27.21 × 36.04 mm | 37 | ZD25WQ16CEIGR (2 MB) / W25Q256JVEIQ (32 MB), USON-8 3×2 mm | All footprints drawn in the project's own `Library.pretty` |
-| [`hw/v1.1A/`](hw/v1.1A) | v1.1A | 27.21 × 36.04 mm | 39 | ZD25WQ128CEIGR (16 MB) / W25Q256JVEIQ (32 MB), USON-8 3×2 mm | Footprints migrated to standard KiCad libraries, silkscreen artwork added |
-| [`hw/v1.2A/`](hw/v1.2A) | v1.2A | 27.21 × 36.04 mm | 39 | ZD25WQ128CEIGR (16 MB) / W25Q256JVEIQ (32 MB), WSON-8 6×5 mm P1.27 | Flash package enlarged to WSON-8 6×5 mm |
-| [`hw/flex/`](hw/flex) | flex | 98.46 × 61.01 mm | 2 | — | Shared 30-pin FFC flex, `DVDFlexCN` pads on the console side |
+| [`hw/v1.1/`](hw/v1.1) | v1.1 | **Discontinued** — kept for design history | ZD25WQ16CEIGR · 2 MB · USON-8 3×2 mm | 27.21 × 36.04 mm | 37 |
+| [`hw/v1.1A/`](hw/v1.1A) | v1.1A | **In production** | ZD25WQ16DEIGR · 2 MB · USON-8 3×2 mm | 27.21 × 36.04 mm | 39 |
+| [`hw/v1.2A/`](hw/v1.2A) | v1.2A | **In production** | ZD25WQ128CEIGR · 16 MB · WSON-8 6×5 mm | 27.21 × 36.04 mm | 39 |
+| [`hw/flex/`](hw/flex) | flex | **In production** | — | 98.46 × 61.01 mm | 2 |
+
+v1.1 is retired and is published only for reference. The current production board is
+**v1.2A**; **v1.1A** is the previous 2 MB revision and remains available as the lower-cost
+option.
+
+## What the 16 MB version adds
+
+v1.2A is an evolution of v1.1A. The flash footprint moves from USON-8 3×2 mm to WSON-8
+6×5 mm so that a 16 MB part can replace the 2 MB one, which brings:
+
+| | **16 MB (v1.2A)** | **2 MB (v1.1A)** |
+| --- | --- | --- |
+| Onboard flash | 16 MB SPI flash | 2 MB SPI flash |
+| PicoLoader firmware | Preloaded | Supported, has to be flashed |
+| Swiss boot payload | `swiss_r2092` preloaded | Usually requires separate setup |
+| SD card IPL file | Not required | Usually needs an IPL file on the SD card |
+| After installation | Copy game files and play | Extra setup steps are often needed |
+| Convenience | Plug-and-play | Requires a bit more work |
+
+Both revisions keep the same PCB outline, the same RP2040, USB-C and 30-pin FFC interface,
+so a 2 MB board can be swapped for a 16 MB one in an existing installation.
+
+## Where to buy
+
+Pre-built units fund the continued development of this hardware and its firmware:
+
+* **v1.1A (2 MB)** — <https://www.aliexpress.com/item/1005012408459349.html>
+* **v1.2A (16 MB)** — <https://www.aliexpress.com/item/1005013055513154.html>
+
+If you would rather build your own from these files, that is exactly what the licence is
+for — a star on the repository or a note about your build is always appreciated.
 
 ## Component summary (main board)
 
 | Designator | Part | Package |
 | --- | --- | --- |
 | U3 | RP2040 | QFN-56 7×7 mm P0.4 mm |
-| FLASH1 | ZD25WQ128CEIGR / W25Q256JVEIQ | USON-8 3×2 mm (v1.1, v1.1A), WSON-8 6×5 mm (v1.2A) |
+| FLASH1 | ZD25WQ128CEIGR (16 MB, v1.2A) · ZD25WQ16DEIGR (2 MB, v1.1A) · ZD25WQ16CEIGR (2 MB, v1.1) | WSON-8 6×5 mm (v1.2A) · USON-8 3×2 mm (v1.1, v1.1A) |
 | U1 | AP2112K-3.3TRG1 LDO | SOT-23-5 |
 | Y1 | 12 MHz crystal | SMD 3225 |
 | J1 | 30-pin 0.5 mm FFC | Hirose FH12-30S-0.5SH-1 |
@@ -31,16 +67,20 @@ All projects are **KiCad 10** (PCB format `20260206`, schematic format `20260306
 | D2 | Indicator LED | 0603 |
 | TP3–TP5 | Test points | 1.0 mm pad |
 
-Power is taken from the USB-C connector through the LDO; the board also has 23 discrete
-resistors and capacitors (0402/0603).
+The board is powered from USB-C through the LDO and carries 23 discrete resistors and
+capacitors (0402 / 0603).
+
+The schematic symbol block also lists **W25Q256JVEIQ** (32 MB) as an alternative QSPI part
+for the same footprint, in case a larger flash is wanted.
 
 ## Repository layout
 
 ```
 .
 ├── LICENSE                  CERN-OHL-P-2.0
+├── extras/                  PCB renders and product photos
 ├── hw/
-│   ├── v1.1/                picoloader.kicad_{pro,sch,pcb}
+│   ├── v1.1/                discontinued — picoloader.kicad_{pro,sch,pcb}
 │   │   ├── fp-lib-table     project footprint table (${KIPRJMOD})
 │   │   ├── sym-lib-table    project symbol table (${KIPRJMOD})
 │   │   ├── Library.pretty   project footprints
@@ -56,8 +96,8 @@ resistors and capacitors (0402/0603).
 
 Every project folder is **self-contained**: `fp-lib-table` and `sym-lib-table` resolve
 through `${KIPRJMOD}`, and `packages3D/` only contains the models the PCB actually
-references. Clone the repository and open the `.kicad_pro` file of the revision you want;
-no extra library installation is needed.
+references. Clone the repository and open the `.kicad_pro` file of the revision you want; no
+extra library installation is needed.
 
 ## Working with the projects
 
