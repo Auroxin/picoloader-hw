@@ -1,0 +1,31 @@
+# --- KiCad -------------------------------------------------------------
+# Local editor state, lock files and autosaves
+*.kicad_prl
+~*.lck
+~*.lck.*
+_autosave-*
+*.bak
+*.kicad_wks.bak
+
+# KiCad generated caches / backups that must never be committed
+fp-info-cache
+fp-info-cache.*
+*-backups/
+*-backups-*
+.history/
+logs/
+archive_3d_models.log
+fabrication-toolkit-options.json
+
+# Plot / fabrication output produced locally
+*.gbr
+*.gbrjob
+*.drl
+*-gerber.zip
+
+# --- OS / editor -------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

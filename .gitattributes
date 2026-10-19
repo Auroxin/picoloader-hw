@@ -1,0 +1,8 @@
+# Normalise all text files to LF so KiCad projects stay byte-stable across platforms.
+* text=auto eol=lf
+
+# Binary-ish assets: never touch them
+*.png binary
+*.jpg binary
+*.zip binary
+*.pdf binary
