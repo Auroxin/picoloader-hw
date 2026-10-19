@@ -62,6 +62,17 @@ Pre-built units fund the continued development of this hardware and its firmware
 If you would rather build your own from these files, that is exactly what the licence is
 for — a star on the repository or a note about your build is always appreciated.
 
+## Fabrication files
+
+Ready-to-order Gerber / drill packages, the BOM and the top-side assembly drawing are
+published per revision:
+
+* [PicoLoader **v1.2A** (16 MB)](https://github.com/Auroxin/picoloader-hw/releases/tag/v1.2A) — Gerber + drill, BOM, assembly drawing
+* [PicoLoader **v1.1A** (2 MB)](https://github.com/Auroxin/picoloader-hw/releases/tag/v1.1A) — Gerber + drill, BOM, assembly drawing
+
+The design sources are in [`hw/`](hw); every fabrication file above is generated from them,
+so you can always re-plot from the project instead of trusting an archive.
+
 ## 3D-printed parts
 
 A solderless installation also needs the printed bracket that holds the board. The parts live
@@ -136,8 +147,10 @@ revision-specific details.
   "update symbol from library" will report the missing libraries.
 * `Library.kicad_sym` in the board projects is intentionally an empty stub — it only keeps
   the project symbol table consistent with the original design environment.
-* Fabrication outputs (Gerber, drill, BOM, pick-and-place) are not tracked. Generate them
-  from the projects with KiCad's own fabrication output or with your preferred plugin.
+* Fabrication outputs are not tracked in the repository — each revision has a
+  [release](https://github.com/Auroxin/picoloader-hw/releases) with the Gerber / drill
+  package, the BOM and the assembly drawing. Re-plot from the project if you want a fresh
+  set.
 
 ## Acknowledgements
 
